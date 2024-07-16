@@ -1,4 +1,4 @@
-import { Input, Form } from 'antd';
+import { Input, Form, Button } from 'antd';  // Ensure Button is imported from antd
 import React from 'react';
 
 function Register() {
@@ -17,7 +17,11 @@ function Register() {
             <Input placeholder='Password' />
           </Form.Item>
 
-          <Button className='primary button'>REGISTER</Button>
+          <Form.Item>
+            <Button type='primary' htmlType='submit'>
+              REGISTER
+            </Button>
+          </Form.Item>
         </Form>
       </div>
     </div>
@@ -25,3 +29,4 @@ function Register() {
 }
 
 export default Register;
+
