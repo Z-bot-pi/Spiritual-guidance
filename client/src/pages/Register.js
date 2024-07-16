@@ -23,7 +23,7 @@ function Register() {
               REGISTER
             </Button>
 
-            <Link to='/login'>CLICK HERE TO LOGIN</Link>
+            <Link to='/login' className='anchor mt-2'>CLICK HERE TO LOGIN</Link>
             <Link layout='vertical'></Link>
           </Form.Item>
         </Form>

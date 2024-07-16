@@ -42,10 +42,11 @@ label{
     font-size: 16px !important;
 }
 
-.link-container {
-    margin-top: 20px;
-    text-align: center;
-  }
+.anchor{
+    color: black !important;
+    text-decoration:underline;
+    font-size: 16px !important;
+}
 
 /* authentication pages */
 
