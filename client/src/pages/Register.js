@@ -4,7 +4,7 @@ import React from 'react';
 function Register() {
   return (
     <div className='authentication'>
-      <div className='authentication-form card p-2'>
+      <div className='authentication-form card p-4'>
         <h1 className='card-title'>Pleasure To Meet You</h1>
         <Form layout='vertical'>
           <Form.Item label='Name' name='name'>
