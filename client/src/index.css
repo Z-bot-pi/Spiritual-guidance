@@ -48,8 +48,11 @@ label{
     color: black !important;
     text-decoration:underline;
     font-size: 16px !important;
+    margin-top: 20px;
 }
-
+.anchor:hover{
+    text-decoration: underline !important;
+}
 /* authentication pages */
 
 .authentication{
@@ -60,4 +63,14 @@ label{
 }
 .authentication-form{
     width: 400px;
+}
+
+.authentication .card-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgb(19, 97, 161);
+    color: white !important;
+    max-width: max-content !important;
+    padding: 7px 15px !important;
+    
 }
