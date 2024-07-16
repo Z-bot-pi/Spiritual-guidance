@@ -1,4 +1,5 @@
 import { Input, Form, Button } from 'antd';  // Ensure Button is imported from antd
+import Link from 'antd/lib/typography/Link';
 import React from 'react';
 
 function Register() {
@@ -18,9 +19,12 @@ function Register() {
           </Form.Item>
 
           <Form.Item>
-            <Button type='primary' htmlType='submit'>
+            <Button type='primary mt-3' htmlType='submit '>
               REGISTER
             </Button>
+
+            <Link to='/login'>CLICK HERE TO LOGIN</Link>
+            <Link layout='vertical'></Link>
           </Form.Item>
         </Form>
       </div>

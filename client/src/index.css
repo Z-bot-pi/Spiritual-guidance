@@ -42,6 +42,11 @@ label{
     font-size: 16px !important;
 }
 
+.link-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+
 /* authentication pages */
 
 .authentication{
