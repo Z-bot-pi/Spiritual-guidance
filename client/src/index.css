@@ -14,7 +14,7 @@ input:focus{
 }
 label{
     font-size: 16px !important;
-    color: : black !important;
+    color: black !important;
 }
 .ant-form-item{
     margin: 10px 0 !important;
@@ -31,6 +31,11 @@ label{
 .card{
     box-shadow:  0 0 2px grey;
     border-radius: 0 !important;
+}
+
+.primary-button{
+    background-color: #51a8f8 !important;
+    border-color:aquamarine !important;
 }
 
 /* authentication pages */

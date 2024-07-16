@@ -16,6 +16,8 @@ function Register() {
           <Form.Item label='Password' name='password'>
             <Input placeholder='Password' />
           </Form.Item>
+
+          <Button className='primary button'>REGISTER</Button>
         </Form>
       </div>
     </div>
