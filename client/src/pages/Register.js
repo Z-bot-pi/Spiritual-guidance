@@ -5,16 +5,18 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 function Register() {
+  // Function to handle form submission
   const onFinish = async (values) => {
     try {
+      // Send a POST request to the backend API to register the user
       const response = await axios.post('/api/users/register', values);
       if (response.data.success) {
-        toast.success(response.data.message);
+        toast.success(response.data.message); // Show success message if registration is successful
       } else {
-        toast.error(response.data.message);
+        toast.error(response.data.message); // Show error message if registration fails
       }
     } catch (error) {
-      toast.error('something went wrong');
+      toast.error('Something went wrong'); // Show error message if there's a server error
     }
   };
 
@@ -23,13 +25,13 @@ function Register() {
       <div className='authentication-form card p-4'>
         <h1 className='card-title'>Pleasure To Meet You</h1>
         <Form layout='vertical' onFinish={onFinish}>
-          <Form.Item label='Name' name='name'>
+          <Form.Item label='Name' name='name' rules={[{ required: true, message: 'Please input your name!' }]}>
             <Input placeholder='Name' />
           </Form.Item>
-          <Form.Item label='Email' name='email'>
+          <Form.Item label='Email' name='email' rules={[{ required: true, message: 'Please input your email!', type: 'email' }]}>
             <Input placeholder='Email' />
           </Form.Item>
-          <Form.Item label='Password' name='password'>
+          <Form.Item label='Password' name='password' rules={[{ required: true, message: 'Please input your password!' }]}>
             <Input placeholder='Password' type='password' />
           </Form.Item>
 
@@ -37,7 +39,6 @@ function Register() {
             <Button className='primary-button my-2' htmlType='submit'>
               REGISTER
             </Button>
-
             <Link to='/login' className='anchor mt-2'>CLICK HERE TO LOGIN</Link>
           </Form.Item>
         </Form>
