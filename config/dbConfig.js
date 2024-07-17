@@ -1,10 +1,10 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,        // Use new URL parser
-    useUnifiedTopology: true,     // Use new server discovery and monitoring engine
-    useCreateIndex: true          // Ensure indexes are created in MongoDB for unique fields
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
 })
 .then(() => console.log("MongoDB is connected"))
 .catch((error) => console.error("Error connecting to MongoDB:", error));
@@ -20,4 +20,3 @@ connection.on("error", (error) => {
 });
 
 module.exports = mongoose;
-
