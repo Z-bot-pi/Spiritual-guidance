@@ -1,3 +1,4 @@
+require('dotenv').config(); /* This is used to read  env file */
 const express = require('express');
 const app = express();
 require('dotenv').config();
