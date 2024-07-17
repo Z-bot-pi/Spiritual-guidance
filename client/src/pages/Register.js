@@ -1,11 +1,22 @@
 import { Input, Form, Button } from 'antd';  // Ensure Button is imported from antd
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import React from 'react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function Register() {
-  const onFinish = (values) => {
-    console.log('Received values of form: ', values);
-  }
+  const onFinish = async (values) => {
+    try {
+      const response = await axios.post('/api/users/register', values);
+      if (response.data.success) {
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      toast.error('something went wrong');
+    }
+  };
 
   return (
     <div className='authentication'>
