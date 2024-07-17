@@ -48,7 +48,7 @@ label{
 }
 
 .anchor{
-    color: black !important;
+    color: rgba(36, 7, 7, 0.945) !important;
     text-decoration:underline;
     font-size: 16px !important;
     margin-top: 20px;
@@ -63,6 +63,7 @@ label{
     display: flex;
     align-items: center;  
     justify-content: center;
+    background-color: #51a8f8;
 }
 .authentication-form{
     width: 400px;

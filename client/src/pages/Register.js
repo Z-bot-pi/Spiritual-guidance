@@ -1,12 +1,9 @@
 import { Input, Form, Button } from 'antd';  // Ensure Button is imported from antd
-import Link from 'antd/lib/typography/Link';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import React from 'react';
 
 function Register() {
-
-
   const onFinish = (values) => {
-
     console.log('Received values of form: ', values);
   }
 
@@ -26,12 +23,11 @@ function Register() {
           </Form.Item>
 
           <Form.Item>
-            <Button className='primary-button my-2' htmlType='submit '>
+            <Button className='primary-button my-2' htmlType='submit'>
               REGISTER
             </Button>
 
-            <Link to='/login' className='anchor my-2'>CLICK HERE TO LOGIN</Link>
-            
+            <Link to='/login' className='anchor mt-2'>CLICK HERE TO LOGIN</Link>
           </Form.Item>
         </Form>
       </div>
@@ -40,5 +36,3 @@ function Register() {
 }
 
 export default Register;
-
-
