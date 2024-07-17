@@ -5,6 +5,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 function Register() {
+  const navigate = useNavigate();
   // Function to handle form submission
   const onFinish = async (values) => {
     try {
@@ -12,6 +13,8 @@ function Register() {
       const response = await axios.post('/api/users/register', values);
       if (response.data.success) {
         toast.success(response.data.message); // Show success message if registration is successful
+        toast('Redirecting to login page');
+        navigate('/login'); // Redirect to the login page
       } else {
         toast.error(response.data.message); // Show error message if registration fails
       }
