@@ -19,7 +19,7 @@ function Register() {
           </Form.Item>
 
           <Form.Item>
-            <Button type='primary mt-3' htmlType='submit '>
+            <Button className='primary-button my-2' htmlType='submit '>
               REGISTER
             </Button>
 
