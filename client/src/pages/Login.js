@@ -1,10 +1,25 @@
 import { Input, Form, Button } from 'antd';  // Ensure Button is imported from antd
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import React from 'react';
-
+import toast from 'react-hot-toast';
+import axios from  'axios';
 function Login() {
-  const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+  const navigate = useNavigate();
+    const onFinish = async(values) => {
+    try {
+      
+      const response = await axios.post('/api/users/login', values);
+      if (response.data.success) {
+        toast.success(response.data.message); 
+        toast('Redirecting to home page');
+        localStorage.setItem('token', response.data.token);
+        navigate('/'); 
+      } else {
+        toast.error(response.data.message); 
+      }
+    } catch (error) {
+      toast.error('Something went wrong'); 
+    }
   }
 
   return (
