@@ -3,11 +3,18 @@ import Link from 'antd/lib/typography/Link';
 import React from 'react';
 
 function Register() {
+
+
+  const onFinish = (values) => {
+
+    console.log('Received values of form: ', values);
+  }
+
   return (
     <div className='authentication'>
       <div className='authentication-form card p-4'>
         <h1 className='card-title'>Pleasure To Meet You</h1>
-        <Form layout='vertical'>
+        <Form layout='vertical' onFinish={onFinish}>
           <Form.Item label='Name' name='name'>
             <Input placeholder='Name' />
           </Form.Item>
@@ -15,7 +22,7 @@ function Register() {
             <Input placeholder='Email' />
           </Form.Item>
           <Form.Item label='Password' name='password'>
-            <Input placeholder='Password' />
+            <Input placeholder='Password' type='password' />
           </Form.Item>
 
           <Form.Item>
