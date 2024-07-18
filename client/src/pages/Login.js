@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();  // Use the hook
+  const navigate = useNavigate();
 
   const login = async () => {
     try {
@@ -15,8 +15,9 @@ const Login = () => {
         password,
       });
       if (response.data.success) {
+        localStorage.setItem('token', response.data.data); // Store JWT token
         toast.success('Login successful!');
-        navigate('/dashboard');  // Navigate to the dashboard page
+        navigate('/home'); // Redirect to the home page
       } else {
         toast.error(response.data.message);
       }
