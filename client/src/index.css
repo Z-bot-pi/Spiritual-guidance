@@ -63,7 +63,7 @@ label{
     display: flex;
     align-items: center;  
     justify-content: center;
-    background-color: #51a8f8;
+    background-color: hsl(175, 57%, 39%);
 }
 .authentication-form{
     width: 400px;
