@@ -1,17 +1,11 @@
-require('dotenv').config();
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-  // Remove useCreateIndex and use createIndexes in the URI
-  // useCreateIndex: true,
-  // Instead, include createIndexes in the URI options
-  useFindAndModify: false,
-  dbName: 'spiritualguidance-alx', // Replace dbName with your database name
-  retryWrites: true,
-  w: 'majority'
-});
+  useUnifiedTopology: true
+})
+.then(() => console.log("MongoDB is connected"))
+.catch((error) => console.error("Error connecting to MongoDB:", error));
 
 const connection = mongoose.connection;
 
