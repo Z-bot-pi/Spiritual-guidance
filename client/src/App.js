@@ -1,24 +1,21 @@
 import React from 'react';
-import {BrowserRouter , Routes , Route} from 'react-router-dom'
-import Login from './pages/Login'
-import Register from './pages/Register'
-
-
-import { Button } from 'antd';
-import { Toaster } from 'react-hot-toast';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import Home from './pages/Home';
+import LandingPage from './pages/LandingPage'; // Import the LandingPage component
+import { Toaster } from 'react-hot-toast';
+
 function App() {
   return (
-    
     <BrowserRouter>
       <Toaster position='top-center' reverseOrder={false} />
-    <Routes> 
-
-       <Route path='/login' element={<Login />}/>
-       <Route path='/register' element={<Register />}/>
-       <Route path='/' element={<Home />}/>
-    </Routes>
-
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/landing' element={<LandingPage />} /> {/* Add this route */}
+      </Routes>
     </BrowserRouter>
   );
 }
