@@ -13,3 +13,9 @@ app.use('/api/users', userRoute);
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Node server started at port ${port}`));
 
+/*Appointment Route*/
+const userRoute = require('./routes/userRoute');
+const appointmentRoute = require('./routes/appointmentRoute');
+
+app.use('/api/users', userRoute);
+app.use('/api/appointments', appointmentRoute);
