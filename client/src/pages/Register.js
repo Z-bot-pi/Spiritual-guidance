@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import React from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+
 
 function Register() {
   const navigate = useNavigate();
