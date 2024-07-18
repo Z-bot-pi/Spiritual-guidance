@@ -4,7 +4,7 @@ import './LandingPage.css'; // Add a separate CSS file for styling the landing p
 
 const LandingPage = () => {
   return (
-    <div className="landing-page">
+    <div className="landing-container" style={{ backgroundImage: `url('/the-importance-of-daily-meditation.png')`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh' }}>
       <header className="header">
         <nav className="nav">
           <ul className="nav-list">
@@ -14,9 +14,8 @@ const LandingPage = () => {
         </nav>
       </header>
       <section className="intro">
-        <div className="cover-image"></div>
         <h1 className="project-name">Spiritual Guidance Appointment System</h1>
-        <p className="project-description">Your gateway to spiritual enlightenment.</p>
+        <p className="project-description">Spirituality is the foundation of life.</p>
         <Link to="/home">
           <button className="primary-button">Go to Application</button>
         </Link>
