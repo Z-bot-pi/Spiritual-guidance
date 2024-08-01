@@ -10,10 +10,7 @@ const Login = () => {
 
   const login = async () => {
     try {
-      const response = await axios.post('/api/users/login', {
-        email,
-        password,
-      });
+      const response = await axios.post('/api/users/login', { email, password });
       if (response.data.success) {
         localStorage.setItem('token', response.data.data); // Store JWT token
         toast.success('Login successful!');
@@ -54,3 +51,4 @@ const Login = () => {
 };
 
 export default Login;
+
