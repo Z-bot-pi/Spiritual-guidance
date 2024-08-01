@@ -23,3 +23,4 @@ router.post('/book', async (req, res) => {
 });
 
 module.exports = router;
+
