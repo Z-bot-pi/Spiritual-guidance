@@ -3,15 +3,28 @@ const router = express.Router();
 const Appointment = require('../models/appointmentModel');
 const jwt = require('jsonwebtoken');
 
-router.post('/book', async (req, res) => {
+// Middleware to authenticate JWT token
+const authMiddleware = (req, res, next) => {
+  const token = req.headers.authorization.split(' ')[1];
+  if (!token) {
+    return res.status(401).send({ message: 'No token provided', success: false });
+  }
+  
   try {
-    const token = req.headers.authorization.split(' ')[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const userId = decoded.id;
+    req.userId = decoded.id;
+    next();
+  } catch (error) {
+    return res.status(401).send({ message: 'Invalid token', success: false });
+  }
+};
 
+// Book Appointment Route
+router.post('/book', authMiddleware, async (req, res) => {
+  try {
     const newAppointment = new Appointment({
       ...req.body,
-      user: userId,
+      user: req.userId,
     });
 
     await newAppointment.save();
@@ -23,4 +36,5 @@ router.post('/book', async (req, res) => {
 });
 
 module.exports = router;
+
 

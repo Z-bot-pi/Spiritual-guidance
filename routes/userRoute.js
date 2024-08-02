@@ -4,6 +4,7 @@ const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+// Register Route
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -34,15 +35,18 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Login Route
 router.post('/login', async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
     if (!user) {
-      return res.status(200).send({ message: 'User does not exist', success: false });
+      return res.status(400).send({ message: 'User does not exist', success: false });
     }
-    const isMatch = await bcrypt.compare(req.body.password, user.password);
+
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(200).send({ message: 'Password is incorrect', success: false });
+      return res.status(400).send({ message: 'Password is incorrect', success: false });
     } else {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
       res.status(200).send({ message: 'Login successful', success: true, data: token });
@@ -54,4 +58,5 @@ router.post('/login', async (req, res) => {
 });
 
 module.exports = router;
+
 
