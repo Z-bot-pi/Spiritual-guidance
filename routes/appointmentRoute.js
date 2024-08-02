@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Appointment = require('../models/AppointmentModel');
+const Appointment = require('../models/appointmentModel');
 const jwt = require('jsonwebtoken');
 
 const defaultGuider = 'Default Spiritual Guider';
