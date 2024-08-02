@@ -1,22 +1,17 @@
-
 const express = require('express');
 const router = express.Router();
 const Appointment = require('../models/appointmentModel');
 const jwt = require('jsonwebtoken');
 
+const defaultGuider = 'Default Spiritual Guider';
+
 // Middleware to authenticate JWT token
 const authMiddleware = (req, res, next) => {
-  const authHeader = req.headers.authorization;
-  
-  if (!authHeader) {
+  const token = req.headers.authorization.split(' ')[1];
+  if (!token) {
     return res.status(401).send({ message: 'No token provided', success: false });
   }
-  
-  const token = authHeader.split(' ')[1];
-  if (!token) {
-    return res.status(401).send({ message: 'Token missing', success: false });
-  }
-  
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.userId = decoded.id;
@@ -31,6 +26,7 @@ router.post('/book', authMiddleware, async (req, res) => {
   try {
     const newAppointment = new Appointment({
       ...req.body,
+      guide: defaultGuider, // Set the default guider
       user: req.userId,
     });
 
@@ -43,5 +39,6 @@ router.post('/book', authMiddleware, async (req, res) => {
 });
 
 module.exports = router;
+
 
 

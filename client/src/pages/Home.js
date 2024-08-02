@@ -6,7 +6,7 @@ import './Home.css'; // Import the CSS file
 const Home = () => {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
-  const [guide, setGuide] = useState('');
+  const guide = 'Default Spiritual Guider'; // Set the default guider
 
   const bookAppointment = async () => {
     try {
@@ -14,7 +14,7 @@ const Home = () => {
       const response = await axios.post('/api/appointments/book', {
         date,
         time,
-        guide,
+        guide, // Use the default guider
       }, {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the request headers
@@ -51,12 +51,6 @@ const Home = () => {
           placeholder="Time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Spiritual Guide"
-          value={guide}
-          onChange={(e) => setGuide(e.target.value)}
         />
         <button type="submit">Book Appointment</button>
       </form>
