@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const Appointment = require('../models/appointmentModel');
@@ -24,6 +25,7 @@ const authMiddleware = (req, res, next) => {
 // Book Appointment Route
 router.post('/book', authMiddleware, async (req, res) => {
   try {
+    console.log('Booking request received:', req.body);
     const newAppointment = new Appointment({
       ...req.body,
       guide: defaultGuider, // Set the default guider

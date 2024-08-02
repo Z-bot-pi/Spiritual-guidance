@@ -11,6 +11,8 @@ const Home = () => {
   const bookAppointment = async () => {
     try {
       const token = localStorage.getItem('token'); // Get JWT token from local storage
+      console.log('Token:', token);
+
       const response = await axios.post('/api/appointments/book', {
         date,
         time,
@@ -21,12 +23,15 @@ const Home = () => {
         }
       });
 
+      console.log('Response:', response);
+
       if (response.data.success) {
         toast.success('Appointment booked successfully!');
       } else {
         toast.error(response.data.message);
       }
     } catch (error) {
+      console.error('Error:', error);
       toast.error('Booking failed. Please try again.');
     }
   };
