@@ -26,7 +26,8 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h2>Welcome back.Kindly login</h2>
+      <h1 className='card-title'>Welcome back.</h1>
+      <p className='card-description'>Login to your account to continue</p>
       <form
         onSubmit={(e) => {
           e.preventDefault();
