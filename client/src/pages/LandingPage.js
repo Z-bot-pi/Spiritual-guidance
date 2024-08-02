@@ -15,9 +15,9 @@ const LandingPage = () => {
       </header>
       <section className="intro">
         <h1 className="project-name">Spiritual Guidance Appointment System</h1>
-        <p className="project-description">Spirituality is the foundation of life.</p>
+        <p className="project-description">Spirituality is the foundation of life.In a world where achievements and dissapointments co-exist,balance is a necessity. Book your appointment with a spiritual guider,offoad and get back rebooted</p>
         <Link to="/home">
-          <button className="primary-button">Go to Application</button>
+          <button className="primary-button"> Application</button>
         </Link>
       </section>
     </div>
