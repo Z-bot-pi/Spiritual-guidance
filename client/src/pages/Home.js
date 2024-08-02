@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import './Home.css'; // Import the CSS file
 
 const Home = () => {
   const [date, setDate] = useState('');
